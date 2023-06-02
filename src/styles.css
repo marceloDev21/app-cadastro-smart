@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px;
+  line-height: 1.5em !important;
+  background: #eceaeb !important;
+}
+
+.p-menubar {
+  background-color: #1e3d8f !important;
+  border: none !important;
+  border-radius: 0px !important;
+}
+
+.p-menubar .p-menuitem-link .p-menuitem-text {
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.87) !important;
+  justify-content: space-around !important;
+}
+.p-menubar .p-menuitem-link:hover {
+  border: none !important;
+  outline: none !important;
+  background-color: #0b1d4d58 !important;
+}
+
+#app {
+  font-family: "Montserrat", sans-serif;
+  font-size: 100%;
+  line-height: 1.5;
+  color: #404354;
+  text-align: center;
+}
+.container {
+  max-width: 50rem;
+  margin: 1rem auto;
+  position: relative;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375em;
+  margin: 0 auto;
+  padding: 0.625em 1em;
+  background: #00bfb2;
+  color: white;
+  border: 0;
+  box-shadow: 0px 0.375rem 0.625rem rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  font-family: Montserrat, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0 0.5rem 1rem 0.5rem;
+}
+.button[disabled] {
+  background-color: lightgrey;
+  color: gray;
+  cursor: not-allowed;
+}

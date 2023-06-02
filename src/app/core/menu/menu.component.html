@@ -1,0 +1,23 @@
+<div class="container-bar">
+  <nav class="container-nav flex align-content-center justify-content-around">
+    <picture>
+      <img
+        src="assets/escudo-cruzeiro.svg"
+        alt="connect_logo"
+        width="80px"
+        routerLink="/"
+      />
+      <img
+        src="assets/marca_socio_5-estrelas.png"
+        alt="connect_logo"
+        width="200px"
+        routerLink="/"
+        class="ml-3"
+      />
+    </picture>
+    <div class="flex align-items-center justify-content-between menu-loginOut">
+      <p-menubar [model]="items"> </p-menubar>
+      <a *ngIf="isLogado" (click)="logout()">Sair</a>
+    </div>
+  </nav>
+</div>

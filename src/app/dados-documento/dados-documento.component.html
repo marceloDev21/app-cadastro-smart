@@ -1,0 +1,200 @@
+<p-toast></p-toast>
+<p-card header="Confirme os dados do documento">
+  <div class="grid p-fluid text-center align-items-center">
+    <div class="col-12 md:col-4">
+      <p-card header="Frente">
+        <img
+          [src]="'data:image/jpg;base64,' + usuario.documentoFrente"
+          alt="Frente"
+          width="300px"
+          height="190px"
+        />
+      </p-card>
+    </div>
+    <div class="col-12 md:col-4">
+      <p-card header="Verso">
+        <img
+          [src]="'data:image/jpg;base64,' + usuario.documentoVerso"
+          alt="Verso"
+          width="300px"
+          height="190px"
+        />
+      </p-card>
+    </div>
+
+    <div class="col-12 md:col-2">
+      <p-card header="Retrato">
+        <img
+          [src]="'data:image/jpg;base64,' + usuario.documentoRetrato"
+          alt="Retrato"
+          width="125px"
+          height="190px"
+        />
+      </p-card>
+    </div>
+    <div class="col-12 md:col-2">
+      <p-card header="Assinatura">
+        <img
+          [src]="'data:image/jpg;base64,' + usuario.documentoAssinatura"
+          alt="Assinatura"
+          width="150px"
+        />
+      </p-card>
+    </div>
+  </div>
+
+  <div class="grid p-fluid">
+    <div class="col-12 md:col-6">
+      <label for="nome">Nome</label>
+      <input name="nome" pInputText [(ngModel)]="usuario.nome" />
+    </div>
+
+    <div class="col-12 md:col-6">
+      <label for="cpf">CPF</label>
+      <p-inputMask
+        mask="999.999.999-99"
+        name="cpf"
+        [(ngModel)]="usuario.cpf"
+      ></p-inputMask>
+    </div>
+
+    <div class="col-12 md:col-6">
+      <label for="pai">Nome do pai</label>
+      <input name="pai" pInputText [(ngModel)]="usuario.nomePai" />
+    </div>
+    <div class="col-12 md:col-6">
+      <label for="mae">Nome da mãe</label>
+      <input name="mae" pInputText [(ngModel)]="usuario.nomeMae" />
+    </div>
+
+    <div class="col-12 md:col-6">
+      <label for="dtNasc">Dt. Nascimento</label>
+      <p-inputMask
+        mask="99/99/9999"
+        name="dtNasc"
+        [ngModel]="usuario.dataNascimento | date : 'dd/MM/yyyy'"
+        (ngModelChange)="(usuario.dataNascimento)"
+      ></p-inputMask>
+    </div>
+
+    <div class="col-12 md:col-6">
+      <label for="naturalidade">Naturalidade</label>
+      <input
+        name="naturalidade"
+        pInputText
+        [(ngModel)]="usuario.naturalidade"
+      />
+    </div>
+
+    <div class="col-12 md:col-4">
+      <label for="cnh">CNH</label>
+      <input name="cnh" pInputText [(ngModel)]="usuario.registro" />
+    </div>
+    <div class="col-12 md:col-4">
+      <label for="cat">Categoria</label>
+      <input name="cat" pInputText [(ngModel)]="usuario.categoriaHabilitacao" />
+    </div>
+    <div class="col-12 md:col-4">
+      <label for="cpf">Dt. Emissão</label>
+      <p-inputMask
+        mask="99/99/9999"
+        name="dtEmissao"
+        [ngModel]="usuario.dataEmissao | date : 'dd/MM/yyyy'"
+        (ngModelChange)="(usuario.dataEmissao)"
+      ></p-inputMask>
+    </div>
+
+    <div class="col-12 md:col-3">
+      <label for="rg">RG</label>
+      <input name="rg" pInputText [(ngModel)]="usuario.documentoIdentidade" />
+    </div>
+    <div class="col-12 md:col-3">
+      <label for="orgao">Órgão emissor</label>
+      <input name="orgao" pInputText [(ngModel)]="usuario.orgaoEmissor" />
+    </div>
+    <div class="col-12 md:col-3">
+      <label for="orgao">Estado emissor</label>
+      <input name="orgao" pInputText [(ngModel)]="usuario.estadoEmissor" />
+    </div>
+    <div class="col-12 md:col-3">
+      <label for="dtExpedicao">Dt. Expedição</label>
+      <p-inputMask
+        mask="99/99/9999"
+        name="dtExpedicao"
+        [ngModel]="usuario.dataExpedicao | date : 'dd/MM/yyyy'"
+        (ngModelChange)="(usuario.dataExpedicao)"
+      ></p-inputMask>
+    </div>
+
+    <div class="col-12 md:col-6">
+      <label for="email">e-mail</label>
+      <input name="email" pInputText [(ngModel)]="usuario.email" />
+    </div>
+
+    <div class="col-12 md:col-6">
+      <label for="celular">Celular</label>
+      <p-inputMask
+        name="celular"
+        mask="(99) 99999-9999"
+        placeholder="contato"
+        [(ngModel)]="usuario.celular"
+      ></p-inputMask>
+    </div>
+
+    <div class="col-12 md:col-3">
+      <label for="listas">Listas</label>
+      <p-dropdown
+        [options]="lista"
+        [(ngModel)]="lists"
+        [showClear]="true"
+        placeholder="Selecione a Lista"
+        ><ng-template let-lista pTemplate="item">
+          <div>
+            {{ lista.displayName }}
+          </div>
+        </ng-template>
+        <ng-template pTemplate="selectedItem" let-lista>
+          <div> {{ lista.displayName }}</div>
+      </ng-template>
+
+      </p-dropdown>
+    </div>
+
+    <div class="col-12 flex justify-content-end">
+      <div class="flex col-3">
+        <button
+          class="col-1"
+          pButton
+          label="Voltar para início"
+          iconPos="right"
+          (click)="voltarParaInicio()"
+        ></button>
+      </div>
+
+      <div class="flex col-3">
+        <button
+          class="p-button-secondary"
+          pButton
+          pRipple
+          label="Cadastrar na Base do SmartFaces"
+          icon="pi pi-database"
+          iconPos="right"
+          (click)="criarWatchListMember()"
+        ></button>
+      </div>
+
+      <div class="flex col-3">
+        <button
+          [disabled]="!dadosDocumento"
+          style="background-color: #1e3d8f; border: none"
+          class="p-button-primary"
+          pButton
+          label="Confirmar dados"
+          icon="pi pi-check"
+          iconPos="right"
+          (click)="provarVida()"
+        ></button>
+      </div>
+    </div>
+  </div>
+</p-card>

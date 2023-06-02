@@ -1,0 +1,25 @@
+<div>
+  <div class="flex justify-content-center mt-4">
+    <h2>Enviar {{ detectar }} do documento</h2>
+  </div>
+  <div class="container">
+    <button
+      class="p-button-info mt-2"
+      label="Cancelar"
+      pButton
+      (click)="voltarParaInicio()"
+    ></button>
+  </div>
+
+  <div class="container">
+    <div class="card-document-capture">
+      <p-card>
+        <app-document-camera
+          (onPhotoTaken)="handlePhotoTaken($event)"
+          (onError)="handleError($event)"
+        ></app-document-camera>
+        <app-document-ui></app-document-ui>
+      </p-card>
+    </div>
+  </div>
+</div>

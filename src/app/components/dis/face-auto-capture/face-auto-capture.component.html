@@ -1,0 +1,17 @@
+<div>
+  <div class="flex justify-content-center mt-4">
+    <h2>Realizar prova de vida</h2>
+  </div>
+  <p-toast position="top-center" key="bc"></p-toast>
+  <div class="container">
+    <div class="card-face-capture">
+      <p-card>
+        <app-face-camera
+          (onPhotoTaken)="handlePhotoTaken($event)"
+          (onError)="handleError($event)"
+        ></app-face-camera>
+        <app-face-ui></app-face-ui>
+      </p-card>
+    </div>
+  </div>
+</div>
